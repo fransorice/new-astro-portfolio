@@ -1,0 +1,27 @@
+---
+import ToggleTheme from "../ToggleTheme/ToggleTheme.astro";
+import DownloadCV from "../DownloadCV/DownloadCV.astro";
+import "./Sidebar.css";
+
+interface Props {
+  navItems: { href: string; label: string }[];
+}
+
+const { navItems } = Astro.props;
+---
+
+<div class="sidebar">
+  <nav>
+    {
+      navItems.map((item) => (
+        <a href={item.href} class="nav-item-sidebar">
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+  <div class="sidebar-footer">
+    <ToggleTheme />
+    <DownloadCV />
+  </div>
+</div>

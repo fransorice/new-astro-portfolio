@@ -1,0 +1,48 @@
+---
+import TimeLine from "../components/TimeLine/TimeLine.astro";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import HomeHero from "../components/HomeHero/HomeHero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import Contact from "../components/Contact/Contact.astro";
+import Projects from "../components/Projects/Projects.astro";
+import ContactLink from "../components/ContactLink/ContactLink.astro";
+---
+
+<Layout title="Franco Sorice | Portfolio">
+  <main>
+    <Container id="home">
+      <HomeHero />
+    </Container>
+
+    <Container id="experiences">
+      <SectionHeader title="Experiencia" icon="mdi:briefcase-variant-outline" />
+      <TimeLine />
+      <div class="contact-link-container">
+        <ContactLink />
+      </div>
+    </Container>
+
+    <Container id="projects">
+      <SectionHeader title="Proyectos" icon="mdi:rocket-launch-outline" />
+      <Projects />
+    </Container>
+
+    <Container id="contact">
+      <SectionHeader title="Contacto" />
+      <Contact />
+    </Container>
+  </main>
+</Layout>
+
+<style>
+  main {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .contact-link-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+</style>

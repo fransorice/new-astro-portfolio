@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+import "./HomeHero.css";
+
+const startDate = new Date(2023, 1, 15);
+const today = new Date();
+let years = today.getFullYear() - startDate.getFullYear();
+const hasNotReachedAnniversary =
+  today.getMonth() < startDate.getMonth() ||
+  (today.getMonth() === startDate.getMonth() && today.getDate() < startDate.getDate());
+if (hasNotReachedAnniversary) years--;
+---
+
+<div class="home-hero">
+  <div class="hero-image">
+    <img src="/franco-foto.jpeg" alt="Franco Sorice" />
+    <div class="image-background"></div>
+  </div>
+  <div class="hero-content">
+    <h1>Hola, soy Franco <span class="wave">👋</span></h1>
+    <p class="hero-description">
+      Soy un desarrollador web con <strong> más de {years} años de experiencia</strong> con React y Nextjs.
+      Me gusta crear paginas web interactivas y escalables, enfocandome en una arquitectura limpia y una excelente experiencia para el usuario.
+    </p>
+    <div class="location-availability">
+      <p class="location">
+        <Icon name="mdi:map-marker-outline" />
+        Rosario, Argentina
+      </p>
+      <p class="availability">
+        <span class="availability-dot-container">
+          <span class="availability-dot"></span>
+        </span>
+        Disponible para nuevos desafíos
+      </p>
+    </div>
+    <div class="social-links">
+      <a
+        href="https://github.com/fransorice"
+        aria-label="GitHub"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="mdi:github" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/franco-sorice/"
+        aria-label="LinkedIn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name="mdi:linkedin" />
+      </a>
+      <a href="mailto:fransorice1@gmail.com" aria-label="Email">
+        <Icon name="mdi:email" />
+      </a>
+    </div>
+  </div>
+</div>

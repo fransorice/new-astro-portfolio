@@ -1,0 +1,253 @@
+---
+import Header from "../components/Header/Header.astro";
+import Footer from "../components/Footer/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Portfolio de Juanma Ibarzabal Salles, frontend developer. Hecho con Astro."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/piojito.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Franco Sorice" />
+    <title>{title}</title>
+    <meta name="google-site-verification" content="KvQ9ce7WJfvphjXaM-hYcoG519ItWyRHD5ae2Gq6JP4" />
+
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="Portfolio de Franco Sorice, frontend developer. Hecho con Astro."
+    />
+    <meta property="og:image" content="https://www.ibarzabal.ar/portfolio.webp" />
+    <meta property="og:url" content="https://www.ibarzabal.ar/" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@JuanmaPiojoso" />
+    <meta name="twitter:creator" content="@JuanmaPiojoso" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content="Portfolio de Juanma Ibarzabal Salles, frontend developer. Hecho con Astro."
+    />
+    <meta name="twitter:image" content="https://www.ibarzabal.ar/portfolio.webp" />
+
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header transition:persist />
+    <slot />
+    <Footer />
+    <div id="toast-container"></div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: dark light;
+    --default: #fff;
+    --primary-50: #f9fafb;
+    --primary-100: #f3f4f6;
+    --primary-200: #e5e7eb;
+    --primary-300: #d1d5db;
+    --primary-400: #9ca3af;
+    --primary-500: #6b7280;
+    --primary-600: #4b5563;
+    --primary-700: #374151;
+    --primary-800: #1f2937;
+    --primary-900: #111827;
+    --primary-950: #030712;
+
+    --yellow: #ffb300;
+    --violet: #bb2092;
+    --magenta: #e6007e;
+    --magenta-hover: #c20066;
+    --green: #00ff00;
+    --green-hover: #00c200;
+    --orange: #F28F22;
+    --blue: #3b82f6;
+
+    --toast-background-success: #2f855a;
+    --toast-background-error: #c53030;
+    --toast-background-info: #0ea5e9;
+    --toast-text-color: #fff;
+
+    --contrast-color: var(--magenta);
+  }
+
+  [data-theme="dark"] {
+    --default: #000;
+    --primary-50: #111827;
+    --primary-100: #1f2937;
+    --primary-200: #374151;
+    --primary-300: #4b5563;
+    --primary-400: #6b7280;
+    --primary-500: #9ca3af;
+    --primary-600: #d1d5db;
+    --primary-700: #e5e7eb;
+    --primary-800: #f3f4f6;
+    --primary-900: #f9fafb;
+    --primary-950: #ffffff;
+
+    --toast-background-success: #2f855a;
+    --toast-background-error: #c53030;
+    --toast-background-info: #0ea5e9;
+    --toast-text-color: #fff;
+
+    --contrast-color: var(--orange);
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "inter";
+    font-weight: 300;
+    src:
+      url("/fonts/Inter-Light.woff2") format("woff2"),
+      url("/fonts/Inter-Light.woff") format("woff");
+  }
+
+  @font-face {
+    font-display: swap;
+    font-family: "inter";
+    font-weight: 400;
+    src:
+      url("/fonts/Inter-Regular.woff2") format("woff2"),
+      url("/fonts/Inter-Regular.woff") format("woff");
+  }
+  @font-face {
+    font-display: swap;
+    font-family: "inter";
+    font-weight: 500;
+    src:
+      url("/fonts/Inter-Medium.woff2") format("woff2"),
+      url("/fonts/Inter-Medium.woff") format("woff");
+  }
+  @font-face {
+    font-display: swap;
+    font-family: "inter";
+    font-weight: 600;
+    src:
+      url("/fonts/Inter-SemiBold.woff2") format("woff2"),
+      url("/fonts/Inter-SemiBold.woff") format("woff");
+  }
+  @font-face {
+    font-display: swap;
+    font-family: "inter";
+    font-weight: 700;
+    src:
+      url("/fonts/Inter-Bold.woff2") format("woff2"),
+      url("/fonts/Inter-Bold.woff") format("woff");
+  }
+
+  html {
+    font-family: "inter", system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--primary-50);
+    color: var(--primary-900);
+    margin: 0;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    font: inherit;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: [contend-start] 1fr [content-end];
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+      animation-duration: 0s;
+    }
+  }
+
+  #toast-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .toast {
+    color: var(--toast-text-color);
+    align-self: center;
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 0.3s,
+      transform 0.3s;
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .toast.success {
+    background-color: var(--toast-background-success);
+  }
+  .toast.error {
+    background-color: var(--toast-background-error);
+  }
+  .toast.info {
+    background-color: var(--toast-background-info);
+  }
+</style>
+
+<script is:inline>
+  function applyTheme() {
+    const theme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", theme);
+  }
+  applyTheme();
+  document.addEventListener("astro:after-swap", applyTheme);
+</script>

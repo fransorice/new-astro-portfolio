@@ -1,0 +1,53 @@
+---
+import ToggleTheme from "./ToggleTheme/ToggleTheme.astro";
+import DownloadCV from "./DownloadCV/DownloadCV.astro";
+import Hamburger from "./Hamburger/Hamburger.astro";
+import Sidebar from "./Sidebar/Sidebar.astro";
+import "./Header.css";
+
+const navItems = [
+  { href: "/#home", label: "Inicio" },
+  { href: "/#experiences", label: "Experiencia" },
+  { href: "/#projects", label: "Proyectos" },
+  { href: "/#contact", label: "Contacto" },
+];
+---
+
+<header>
+  <div class="header-menu">
+    <a href="/#home" class="nav-item logo"> Franco Sorice </a>
+
+    <div class="desktop-menu">
+      <nav>
+        {
+          navItems.slice(1, navItems.length).map((item) => (
+            <a href={item.href} class="nav-item">
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+      <hr />
+      <ToggleTheme />
+      <DownloadCV />
+    </div>
+
+    <Hamburger />
+  </div>
+
+  <Sidebar navItems={navItems} />
+</header>
+
+<script>
+  import { headerToggleOnScroll } from "./utils/scroll";
+  import { initializeSidebar } from "./utils/sidebar";
+  import { initializeNavigation } from "./utils/navigation";
+
+  function setupHeader() {
+    headerToggleOnScroll();
+    initializeSidebar();
+    initializeNavigation();
+  }
+
+  document.addEventListener("astro:page-load", setupHeader);
+</script>

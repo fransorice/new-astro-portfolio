@@ -1,0 +1,88 @@
+---
+import { Icon } from "astro-icon/components";
+import "./TimeLine.css";
+import { experiences } from "@src/data/experiences";
+
+const currentLocale = Astro.request.headers.get("accept-language")?.split(",")[0] || "es-AR";
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString(currentLocale, {
+    month: "short",
+    year: "numeric",
+  });
+};
+
+const JOBS = Object.entries(experiences).map(([key, job]) => ({
+  ...job,
+  detailLink: `/experiencia/${key}`,
+  initDate: formatDate(job.initDate),
+  endDate: job.endDate === "now" ? "now" : formatDate(job.endDate as Date),
+}));
+---
+
+<ol class="timeline">
+  {
+    JOBS.map((job) => (
+      <li class={`timeline-item ${job.color}`}>
+        <div class="timeline-marker" />
+        <div class="timeline-panel">
+          <div class="timeline-header">
+            <div class="timeline-header-logo" transition:name={`logo-${job.logo}`}>
+              <Icon name={job.logo} class="company-logo" />
+            </div>
+            <div>
+              <h3 class="timeline-title" transition:name={`title-${job.title}`}>
+                {job.title}
+              </h3>
+              <h4 class="timeline-company" transition:name={`company-${job.company}`}>
+                {job.company}
+              </h4>
+            </div>
+          </div>
+
+          <div class="timeline-extra-info">
+            <p transition:name={`location-${job.company}`}>
+              <Icon name="mdi:map-marker-outline" />
+              {job.location}
+            </p>
+            <p transition:name={`period-${job.company}`}>
+              <Icon name="mdi:calendar" />
+              {job.initDate} -
+              {job.endDate === "now"
+                ? new Date().toLocaleDateString(currentLocale, {
+                    month: "short",
+                    year: "numeric",
+                  })
+                : job.endDate}
+            </p>
+          </div>
+
+          <div class="timeline-body">
+            <p class="timeline-description">{job.shortDescription}</p>
+            <a href={job.detailLink} class="timeline-know-more">
+              Saber más <Icon name="mdi:arrow-right" />
+            </a>
+          </div>
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<script>
+  function checkVisibility() {
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    timelineItems.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      const isVisible = rect.top <= window.innerHeight * 0.75;
+      if (isVisible) {
+        item.classList.add("visible");
+      } else {
+        item.classList.remove("visible");
+      }
+    });
+  }
+
+  window.addEventListener("load", checkVisibility);
+  window.addEventListener("scroll", checkVisibility);
+</script>
