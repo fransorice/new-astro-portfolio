@@ -4,54 +4,46 @@ import "./Projects.css";
 
 const projects = [
   {
-    title: "",
+    title: "Ticket App",
     description:
-      "",
-    image: "projects/img/aerolab.webp",
-    video: "projects/video/aerolab.mp4",
+      "Desarrollé un sistema de turnos integral para una clínica en Marbella, España, con el fin de optimizar la atención al paciente.",
+    image: "projects/img/ticketapp.webp",
+    video: "projects/video/ticketapp.mp4",
     github: "",
-    demo: "",
+    demo: "https://ticketapp-demo.vercel.app/",
     technologies: [
-      "Nextjs",
-      "React",
-      "Css",
-      "Typescript",
-      "React Testing Library",
-      "Jest",
-      "Figma",
+      "ReactJS",
+      "Tailwind",
+      "TypeScript",
+      "Web Sockets"
     ],
   },
   {
-    title: "",
-    description: "",
-    image: "projects/img/buscamina.webp",
-    video: "projects/video/buscamina.mp4",
-    github: "",
-    demo: "",
-    technologies: ["React", "Css", "Typescript"],
+    title: "Higher or Lower",
+    description: "Higher or Lower es un juego interactivo que desarrollé con React y TypeScript, donde el usuario debe adivinar si el siguiente valor será mayor o menor basado en las búsquedas en Google.",
+    image: "projects/img/higher-or-lower.webp",
+    video: "projects/video/higher-or-lower.mp4",
+    github: "https://github.com/fransorice/higher-or-lower-game",
+    demo: "https://higher-or-lower-game-sorice.vercel.app/",
+    technologies: ["ReactJS", "Tailwind", "TypeScript"],
   },
   {
-    title: "",
-    description: "",
-    image: "/projects/img/neongiphy.webp",
-    video: "/projects/video/neongiphy.mp4",
-    github: "",
-    technologies: ["Next.js", "Typescript", "Sass", "Giphy API"],
-  },
-  {
-    title: "",
-    description:
-      "",
-    image: "/projects/img/pokedex.webp",
-    video: "/projects/video/pokedex.mp4",
-    github: "",
-    demo: "",
-    technologies: ["React.js", "Chakra-UI", "JavaScript", "Pokeapi", "React-Router"],
-  },
+    title: "Heroes and Villains App",
+    description: "App de búsqueda de personajes de Marvel y DC desarrollada con React y TypeScript, consumiendo una API RESTful para mostrar resultados dinámicos e interactivos.",
+    image: "/projects/img/heroes-and-villains.webp",
+    video: "/projects/video/heroes-and-villains.mp4",
+    github: "https://github.com/fransorice/heroes-app",
+    demo: "https://heroer-and-villains-api-sorice.netlify.app/",
+    technologies: [
+      "ReactJS",
+      "Tailwind",
+      "TypeScript",
+      "Axios"
+      ],
+  }
 ];
 ---
 
 <div class="projects-container">
-  <!-- {projects.map((project) => <ProjectCard {...project} />)} -->
-   Proximamente
+  {projects.map((project) => <ProjectCard {...project} />)}
 </div>

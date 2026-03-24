@@ -45,9 +45,13 @@ const { title, description, image, video, github, demo, technologies } = Astro.p
           </a>
         )
       }
-      <a href={github} class="btn-outline" target="_blank" rel="noopener noreferrer">
-        <Icon name="mdi:github" /> GitHub
-      </a>
+      {
+        github && (
+          <a href={github} class="btn-outline" target="_blank" rel="noopener noreferrer">
+            <Icon name="mdi:github" /> GitHub
+          </a>
+        )
+      }
     </div>
   </div>
 </div>
