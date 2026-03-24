@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import { experiences } from "@src/data/experiences";
 import Container from "@src/components/Container.astro";
 
@@ -34,7 +34,7 @@ const experience = {
 ---
 
 <Layout title={`Experiencia en ${experience.company} | Franco Sorice`}>
-  <ViewTransitions />
+  <ClientRouter />
   <main>
     <Container>
       <div class="experience-header">
