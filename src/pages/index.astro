@@ -7,6 +7,7 @@ import SectionHeader from "../components/SectionHeader.astro";
 import Contact from "../components/Contact/Contact.astro";
 import Projects from "../components/Projects/Projects.astro";
 import ContactLink from "../components/ContactLink/ContactLink.astro";
+import Skills from "@src/components/Skills/Skills.astro";
 ---
 
 <Layout title="Franco Sorice | Portfolio">
@@ -26,6 +27,11 @@ import ContactLink from "../components/ContactLink/ContactLink.astro";
     <Container id="projects">
       <SectionHeader title="Proyectos" icon="mdi:rocket-launch-outline" />
       <Projects />
+    </Container>
+
+    <Container id="skills">
+      <SectionHeader title="Habilidades" icon="mdi:tools" />
+      <Skills />
     </Container>
 
     <Container id="contact">

@@ -1,0 +1,129 @@
+---
+import './Skills.css';
+
+const skills = {
+    frontend: [
+        {
+            name: 'HTML5',
+            icon: '/skills/html-5.svg',
+        },
+        {
+            name: 'CSS3',
+            icon: '/skills/css-3.svg',
+        },
+        {
+            name: 'TailwindCSS',
+            icon: '/skills/tailwind.svg',
+        },
+        {
+            name: 'JavaScript',
+            icon: '/skills/javascript.svg',
+        },
+        {
+            name: 'TypeScript',
+            icon: '/skills/typescript.svg',
+        },
+        {
+            name: 'Astro',
+            icon: '/skills/astro.svg',
+        },
+        {
+            name: 'ReactJS',
+            icon: '/skills/react.svg',
+        },
+        ],
+    backend: [
+        {
+            name: 'Node.js',
+            icon: '/skills/nodejs.svg',
+        },
+        {
+            name: 'Express.js',
+            icon: '/skills/express2.svg',
+        },
+        {
+            name: 'Java',
+            icon: '/skills/java.svg',
+        },
+        {
+            name: 'Springboot',
+            icon: '/skills/springboot.svg',
+        },
+        {
+            name: 'PostgreSQL',
+            icon: '/skills/postgresql.svg',
+        }
+    ],
+    tools: [
+        {
+            name: 'Git',
+            icon: '/skills/git.svg',
+        },
+        {
+            name: 'GitHub',
+            icon: '/skills/github.svg',
+        },
+        {
+            name: 'VSCode',
+            icon: '/skills/visual-studio-code.svg',
+        },
+        {
+            name: 'Docker',
+            icon: '/skills/docker.svg',
+        },
+        {
+            name: 'Postman',
+            icon: '/skills/postman.svg',
+        },
+        {
+            name: 'Claude',
+            icon: '/skills/claude.svg',
+        },
+    ]
+}
+    
+---
+
+<div class="skills-container">
+    <div class="frontend-container">
+        <h2>Frontend</h2>
+        <div class="frontend-skills-container">
+            {skills.frontend.map((skill) => (
+                <div class="skill-card">
+                    <img 
+                        src={skill.icon} 
+                        alt={skill.name} 
+                        class={`skill-icon ${skill.name.toLocaleLowerCase()}-img`} 
+                    />
+                    <span>{skill.name}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+    <div class="backend-container">
+        <h2>Backend</h2>
+        <div class="backend-skills-container">
+            {skills.backend.map((skill) => (
+                <div class="skill-card">
+                    <img src={skill.icon} alt={skill.name} class="skill-icon" />
+                    <span>{skill.name}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+    <div class="tools-container">
+        <h2>Tools</h2>
+        <div class="tools-skills-container">
+            {skills.tools.map((skill) => (
+                <div class="skill-card">
+                    <img 
+                        src={skill.icon} 
+                        alt={skill.name} 
+                        class="skill-icon" 
+                    />
+                    <span>{skill.name}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+</div>

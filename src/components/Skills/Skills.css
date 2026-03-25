@@ -1,0 +1,205 @@
+.skills-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Cada bloque: Frontend / Backend / Tools */
+.frontend-container,
+.backend-container,
+.tools-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Títulos */
+.frontend-container h2,
+.backend-container h2,
+.tools-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  position: relative;
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+
+/* Línea decorativa debajo del título */
+.frontend-container h2::after,
+.backend-container h2::after,
+.tools-container h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 60%;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #8b5cf6);
+}
+
+/* Grid de skills */
+.frontend-skills-container,
+.backend-skills-container,
+.tools-skills-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* máximo 4 por fila */
+  gap: 1.25rem;
+}
+
+/* Card individual */
+.skill-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.25rem 1rem;
+  min-height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+
+  text-align: center;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Hover */
+.skill-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Icono general */
+.skill-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Texto */
+.skill-card span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  line-height: 1.3;
+}
+
+/* =========================
+   CLASES ESPECÍFICAS OPCIONALES
+   (por si querés ajustar logos)
+========================= */
+
+.html5-img {
+  width: 50px;
+  height: 50px;
+}
+
+.css3-img {
+  width: 50px;
+  height: 50px;
+}
+
+.tailwindcss-img {
+  width: 58px;
+  height: 58px;
+}
+
+.javascript-img {
+  width: 50px;
+  height: 50px;
+}
+
+.typescript-img {
+  width: 50px;
+  height: 50px;
+}
+
+.astro-img {
+  width: 56px;
+  height: 56px;
+}
+
+.reactjs-img {
+  width: 58px;
+  height: 58px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Tablet grande */
+@media (max-width: 1024px) {
+  .frontend-skills-container,
+  .backend-skills-container,
+  .tools-skills-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .skills-container {
+    padding: 3rem 1rem;
+    gap: 2.5rem;
+  }
+
+  .frontend-container h2,
+  .backend-container h2,
+  .tools-container h2 {
+    font-size: 1.75rem;
+  }
+
+  .frontend-skills-container,
+  .backend-skills-container,
+  .tools-skills-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .skill-card {
+    min-height: 120px;
+    padding: 1rem 0.75rem;
+  }
+
+  .skill-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .skill-card span {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .frontend-skills-container,
+  .backend-skills-container,
+  .tools-skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  .frontend-container h2,
+  .backend-container h2,
+  .tools-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .skill-card {
+    min-height: 110px;
+  }
+}
